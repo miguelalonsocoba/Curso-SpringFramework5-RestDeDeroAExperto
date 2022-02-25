@@ -3,13 +3,20 @@
  */
 package com.dev4j.di.attribute;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 /**
  * @author mac
  *
  */
+@Component
 public class Engine {
 
+	@Value("Xl1")
 	private String make;
+
+	@Value("1982")
 	private Integer model;
 
 	public Engine() {

@@ -2,19 +2,20 @@ package com.dev4j.di;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import com.dev4j.di.attribute.Car;
-import com.dev4j.di.attribute.Engine;
 
 @SpringBootApplication
 public class DependencyInyectionApplication {
 
 	public static void main(String[] args) {
-//		SpringApplication.run(DependencyInyectionApplication.class, args);
+		//El contexto es el lugar donde viven los objetos administrados por Spring.
+		ConfigurableApplicationContext context = SpringApplication.run(DependencyInyectionApplication.class, args);
 
-		Engine engine = new Engine("Xl1", 1981);
-		Car car = new Car("Tsuru", 1985, engine);
-
+		// Se recupera el bean/Objeto del contexto de Spring.
+		Car car = context.getBean(Car.class);
+		
 		System.out.println(car);
 	}
 

@@ -3,14 +3,25 @@
  */
 package com.dev4j.di.attribute;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 /**
  * @author mac
  *
  */
+@Component
 public class Car {
 
+	@Value("VW")
 	private String make;
+
+	@Value("1981")
 	private Integer model;
+
+	// Se realiza la inyeccion de dependencia en un atributo.
+	@Autowired
 	private Engine engine;
 
 	public Car() {
