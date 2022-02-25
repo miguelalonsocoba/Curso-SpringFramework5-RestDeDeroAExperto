@@ -20,9 +20,10 @@ public class Car {
 
 	private Engine engine;
 
-	// Se agraga la inyeccion de dependencia a nivel de constructor.
-	@Autowired
-	public Car(@Value("VW") String make, @Value("1981") Integer model, Engine engine) {
+	public Car() {
+	}
+
+	public Car(String make, Integer model, Engine engine) {
 		super();
 		this.make = make;
 		this.model = model;
@@ -33,6 +34,8 @@ public class Car {
 		return make;
 	}
 
+	// Se agraga la inyeccion de dependencia a traves del metodo set.
+	@Value("VW")
 	public void setMake(String make) {
 		this.make = make;
 	}
@@ -41,6 +44,8 @@ public class Car {
 		return model;
 	}
 
+	// Se agraga la inyeccion de dependencia a traves del metodo set.
+	@Value("1981")
 	public void setModel(Integer model) {
 		this.model = model;
 	}
@@ -49,6 +54,8 @@ public class Car {
 		return engine;
 	}
 
+	// Se agraga la inyeccion de dependencia a traves del metodo set.
+	@Autowired
 	public void setEngine(Engine engine) {
 		this.engine = engine;
 	}

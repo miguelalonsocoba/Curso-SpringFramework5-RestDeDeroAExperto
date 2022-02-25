@@ -17,16 +17,14 @@ public class Engine {
 
 	private Integer model;
 
-	public Engine(@Value("Xl1") String make, @Value("1982") Integer model) {
-		super();
-		this.make = make;
-		this.model = model;
+	public Engine() {
 	}
 
 	public String getMake() {
 		return make;
 	}
 
+	@Value("Xl1")
 	public void setMake(String make) {
 		this.make = make;
 	}
@@ -35,6 +33,7 @@ public class Engine {
 		return model;
 	}
 
+	@Value("1982")
 	public void setModel(Integer model) {
 		this.model = model;
 	}
