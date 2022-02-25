@@ -14,21 +14,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class Car {
 
-	@Value("VW")
 	private String make;
 
-	@Value("1981")
 	private Integer model;
 
-	// Se realiza la inyeccion de dependencia en un atributo.
-	@Autowired
 	private Engine engine;
 
-	public Car() {
-
-	}
-
-	public Car(String make, Integer model, Engine engine) {
+	// Se agraga la inyeccion de dependencia a nivel de constructor.
+	@Autowired
+	public Car(@Value("VW") String make, @Value("1981") Integer model, Engine engine) {
 		super();
 		this.make = make;
 		this.model = model;

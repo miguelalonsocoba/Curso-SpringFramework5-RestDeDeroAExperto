@@ -13,16 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class Engine {
 
-	@Value("Xl1")
 	private String make;
 
-	@Value("1982")
 	private Integer model;
 
-	public Engine() {
-	}
-
-	public Engine(String make, Integer model) {
+	public Engine(@Value("Xl1") String make, @Value("1982") Integer model) {
 		super();
 		this.make = make;
 		this.model = model;
