@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dev4j.di.attribute;
+package com.dev4j.di.inyection;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
