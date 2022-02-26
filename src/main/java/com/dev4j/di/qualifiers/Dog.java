@@ -16,5 +16,5 @@ public class Dog extends Animal {
 	public Dog(@Value("Rocky") String nombre, @Value("1") Integer edad) {
 		super(nombre, edad);
 	}
-	
+
 }
