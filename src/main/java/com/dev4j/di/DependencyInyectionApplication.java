@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import com.dev4j.di.profiles.EnvironmentService;
+import com.dev4j.di.scopes.ExampleScopeService;
 
 @SpringBootApplication
 public class DependencyInyectionApplication {
@@ -16,11 +16,11 @@ public class DependencyInyectionApplication {
 	public static void main(String[] args) {
 		// El contexto es el lugar donde viven los objetos administrados por Spring.
 		ConfigurableApplicationContext context = SpringApplication.run(DependencyInyectionApplication.class, args);
-
-		// Se recupera el bean/Objeto del contexto de Spring.
-		EnvironmentService environmentService = context.getBean(EnvironmentService.class);
-
-		LOGGER.info("Active environment {}", environmentService.getEnvironment());
+		ExampleScopeService exampleScopeService = context.getBean(ExampleScopeService.class);
+		ExampleScopeService exampleScopeService1 = context.getBean(ExampleScopeService.class);
+		
+		LOGGER.info("Are beans equals {}", exampleScopeService.equals(exampleScopeService1));
+		LOGGER.info("Are beans == {}", exampleScopeService == exampleScopeService1);
 	}
 
 }
