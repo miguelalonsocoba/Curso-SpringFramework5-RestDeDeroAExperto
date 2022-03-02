@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.dev4j.di.autowire.AreaCalculatorService;
+
 @SpringBootApplication
 public class DependencyInyectionApplication {
 
@@ -21,8 +23,8 @@ public class DependencyInyectionApplication {
 	public static void main(String[] args) {
 		// El contexto es el lugar donde viven los objetos administrados por Spring.
 		ConfigurableApplicationContext context = SpringApplication.run(DependencyInyectionApplication.class, args);
-		String nameApplication = context.getBean(String.class);
-		LOGGER.info("Name application: {}", nameApplication);
+		AreaCalculatorService areaCalculatorService = context.getBean(AreaCalculatorService.class);
+		LOGGER.info("Area total: {}", areaCalculatorService.calAreas());
 	}
 
 }
