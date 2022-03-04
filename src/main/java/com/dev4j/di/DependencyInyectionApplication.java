@@ -2,11 +2,12 @@ package com.dev4j.di;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.expression.Expression;
-import org.springframework.expression.ExpressionParser;
-import org.springframework.expression.spel.standard.SpelExpressionParser;
+
+import com.dev4j.di.lifecycle.LifeCycleBean;
 
 @SpringBootApplication
 public class DependencyInyectionApplication {
@@ -24,10 +25,13 @@ public class DependencyInyectionApplication {
 //		ConfigurableApplicationContext context = SpringApplication.run(DependencyInyectionApplication.class, args);
 //		AreaCalculatorService areaCalculatorService = context.getBean(AreaCalculatorService.class);
 //		LOGGER.info("Area total: {}", areaCalculatorService.calAreas());
-		
-		ExpressionParser expressionParser = new SpelExpressionParser();
-		Expression expression = expressionParser.parseExpression("10 + 20");
-		LOGGER.info("Result {}", expression.getValue());
+
+//		ExpressionParser expressionParser = new SpelExpressionParser();
+//		Expression expression = expressionParser.parseExpression("10 + 20");
+//		LOGGER.info("Result {}", expression.getValue());
+
+		ConfigurableApplicationContext context = SpringApplication.run(DependencyInyectionApplication.class, args);
+		LifeCycleBean bean = context.getBean(LifeCycleBean.class);
 
 	}
 
