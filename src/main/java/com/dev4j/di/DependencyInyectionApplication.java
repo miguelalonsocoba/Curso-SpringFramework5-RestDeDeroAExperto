@@ -21,10 +21,10 @@ public class DependencyInyectionApplication {
 		return "Devs4j_rules";
 	}
 
-	@Bean(initMethod = "init", destroyMethod = "destroy")
-	public ExplicitBean getBean() {
-		return new ExplicitBean();
-	}
+//	@Bean(initMethod = "init", destroyMethod = "destroy")
+//	public ExplicitBean getBean() {
+//		return new ExplicitBean();
+//	}
 
 	public static void main(String[] args) {
 		// El contexto es el lugar donde viven los objetos administrados por Spring.

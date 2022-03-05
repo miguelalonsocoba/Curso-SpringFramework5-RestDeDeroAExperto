@@ -9,7 +9,8 @@ import javax.annotation.PreDestroy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.context.annotation.Scope;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,28 +18,39 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
-@Scope("prototype")
-public class LifeCycleBean implements BeanNameAware{
+//@Scope("prototype") -> Recordemos que Predestroy no se ejecuta para Beans de tipo Prototype.
+public class LifeCycleBean implements BeanNameAware, InitializingBean, DisposableBean {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(LifeCycleBean.class);
-	
+
+	// Se ejecuta durante la contrucciòn del Bean
 	@Override
 	public void setBeanName(String name) {
 		LOGGER.info("Bean name aware {}", name);
 	}
-	
+
 	// Se ejecutara despues de la inyecciòn de dependencias.
 	@PostConstruct
 	public void init() {
 		LOGGER.info("Post Contruct.");
 	}
-	
+
 	// Se ejecutar antes de que el Bean sea destruido.
 	// No se ejecutan para Bean Prototype.
 	// Solo se ejecutan durante una terminaciòn de la VM de forma normal.
 	@PreDestroy
-	public void destroy() {
+	public void destroyBean() {
 		LOGGER.info("Pre destroy");
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		LOGGER.info("After properties set method.");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		LOGGER.info("Destroy method.");
 	}
 
 }
