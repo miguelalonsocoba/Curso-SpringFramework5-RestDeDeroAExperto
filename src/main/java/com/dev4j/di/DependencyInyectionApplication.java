@@ -15,29 +15,9 @@ public class DependencyInyectionApplication {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DependencyInyectionApplication.class);
 
-	// Representa la declaracion de Bean de forma explicita.
-	@Bean
-	public String getApplicationName() {
-		return "Devs4j_rules";
-	}
-
-//	@Bean(initMethod = "init", destroyMethod = "destroy")
-//	public ExplicitBean getBean() {
-//		return new ExplicitBean();
-//	}
-
 	public static void main(String[] args) {
-		// El contexto es el lugar donde viven los objetos administrados por Spring.
-//		ConfigurableApplicationContext context = SpringApplication.run(DependencyInyectionApplication.class, args);
-//		AreaCalculatorService areaCalculatorService = context.getBean(AreaCalculatorService.class);
-//		LOGGER.info("Area total: {}", areaCalculatorService.calAreas())					;
-
-//		ExpressionParser expressionParser = new SpelExpressionParser();
-//		Expression expression = expressionParser.parseExpression("10 + 20");
-//		LOGGER.info("Result {}", expression.getValue());
-
 		ConfigurableApplicationContext context = SpringApplication.run(DependencyInyectionApplication.class, args);
-		LifeCycleBean bean = context.getBean(LifeCycleBean.class);
+//		LifeCycleBean bean = context.getBean(LifeCycleBean.class);
 
 	}
 
